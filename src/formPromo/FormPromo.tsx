@@ -1,5 +1,5 @@
 import { FC, FormEvent, useRef, useState } from 'react';
-import styles from './app.module.scss';
+import styles from './formPromo.module.scss';
 
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
@@ -12,7 +12,7 @@ interface AppPromo {
 }
 
 const FormPromo: FC<AppPromo> = ({
-  bgColor = '#ffffff',
+  bgColor = '#eee',
   buttonColor = '#ffffff',
   textColor = '#000000',
 }) => {
@@ -50,22 +50,28 @@ const FormPromo: FC<AppPromo> = ({
         }}
       >
         <form onSubmit={handleSubmit} ref={form} className={styles.form}>
-          <div className={styles.formItem}>
-            <label>
+          <div className={styles.inputContainer}>
+            <label className={styles.formItem}>
               Тема работы:
-              <input required type="text" name="themeWorks" />
+              <input
+                className={styles.inputForm}
+                required
+                type="text"
+                name="themeWorks"
+              />
             </label>
-          </div>
-          <div className={styles.formItem}>
-            <label>
+            <label className={styles.formItem}>
               Email:
-              <input required type="email" name="email" />
+              <input
+                className={styles.inputForm}
+                required
+                type="email"
+                name="email"
+              />
             </label>
-          </div>
-          <div className={styles.formItem}>
-            <label>
+            <label className={styles.formItem}>
               Выберите предмет:
-              <select required name="subject">
+              <select className={styles.inputForm} required name="subject">
                 <option value="">Выберите предмет</option>
                 <option value="Математика">Математика</option>
                 <option value="Физика">Физика</option>
@@ -73,9 +79,9 @@ const FormPromo: FC<AppPromo> = ({
               </select>
             </label>
           </div>
-
           <button
             style={{ backgroundColor: buttonColor ?? '#ffffff' }}
+            className={styles.buttonSubmit}
             type="submit"
           >
             Отправить

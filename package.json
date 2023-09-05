@@ -4,13 +4,18 @@
   "description": "",
   "main": "index.tsx",
   "scripts": {
-    "build": "NODE_ENV='production' webpack",
-    "start": "NODE_ENV='development' webpack serve --config webpack.config.js"
+    "build:prod:dialog": "NODE_ENV='production' VARIABLE_BUILD='dialog'  webpack",
+    "build:dev:dialog": "NODE_ENV='development' VARIABLE_BUILD='dialog'  webpack",
+    "start:dev:dialog": "NODE_ENV='development' VARIABLE_BUILD='dialog' webpack serve --config webpack.config.js",
+    "build:prod:form": "NODE_ENV='production' VARIABLE_BUILD='form'  webpack",
+    "build:dev:form": "NODE_ENV='development' VARIABLE_BUILD='form'  webpack",
+    "start:dev:form": "NODE_ENV='development' VARIABLE_BUILD='form' webpack serve --config webpack.config.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "AntonKlochkov",
   "license": "ISC",
   "dependencies": {
+    "@svgr/webpack": "^8.1.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.2.2"
   },
@@ -23,10 +28,13 @@
     "@types/react-dom": "^18.2.7",
     "babel-loader": "^9.1.3",
     "css-loader": "^6.8.1",
+    "html-webpack-inline-svg-plugin": "^2.3.0",
     "html-webpack-plugin": "^5.5.3",
     "sass": "^1.66.1",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
+    "svg-inline-loader": "^0.8.2",
+    "svg-react-loader": "^0.4.6",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1",
